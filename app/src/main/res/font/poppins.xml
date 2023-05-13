@@ -6,7 +6,7 @@
         android:fontWeight="400"/>
 
     <font
-        android:font="@font/poppins_black"
+        android:font="@font/poppins_bold"
         android:fontStyle="normal"
         android:fontWeight="700"/>
 </font-family>

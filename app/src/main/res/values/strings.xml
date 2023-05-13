@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MD</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">password</string>
+    <string name="register">Register</string>
+    <string name="or_you_don_t_have_an_account">or you don\'t have an account</string>
 </resources>
