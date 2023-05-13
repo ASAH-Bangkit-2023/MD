@@ -13,4 +13,8 @@
     <string name="or_have_an_account">or have an account</string>
     <string name="thumbail_blog">thumbail blog</string>
     <string name="blog">Blog</string>
+    <string name="home">Home</string>
+    <string name="maps">Maps</string>
+    <string name="about">About</string>
+    <string name="profile">Profile</string>
 </resources>
