@@ -20,7 +20,7 @@ class LoginFragment : Fragment() {
     }
 
     override fun onDestroy() {
-        _binding = null
         super.onDestroy()
+        _binding = null
     }
 }

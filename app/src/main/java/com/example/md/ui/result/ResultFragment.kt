@@ -1,21 +1,21 @@
-package com.example.md.ui.register
+package com.example.md.ui.result
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.md.databinding.FragmentRegisterBinding
+import com.example.md.databinding.FragmentResultBinding
 
-class RegisterFragment : Fragment() {
-    private var _binding: FragmentRegisterBinding? = null
+class ResultFragment : Fragment() {
+    private var _binding: FragmentResultBinding? = null
     private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        _binding = FragmentResultBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
