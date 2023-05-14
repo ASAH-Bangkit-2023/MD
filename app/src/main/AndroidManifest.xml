@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MD"
         tools:targetApi="31">
         <activity
+            android:name=".ui.reminder.ReminderActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
