@@ -26,4 +26,11 @@
     <string name="_7">7</string>
     <string name="set_pengingat">Set Pengingat</string>
     <string name="result">Result</string>
+    <string name="history">History</string>
+    <string name="reward">Tukar Point</string>
+    <string name="scan">Scan Sampah</string>
+    <string name="camera">Kamera</string>
+    <string name="galery">Galeri</string>
+    <string name="cek_sampah">Cek Jenis Sampah</string>
+    <string name="scan_sampah_image">Scan sampah image</string>
 </resources>
