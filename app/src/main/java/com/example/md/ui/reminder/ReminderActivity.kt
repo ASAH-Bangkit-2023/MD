@@ -1,6 +1,8 @@
 package com.example.md.ui.reminder
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -68,6 +70,12 @@ class ReminderActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListe
         binding.cancelAlarm.setOnClickListener {
             reminderReceiver.cancelAlarm(this)
             viewModel.cancelAlarm()
+        }
+
+        binding.allowNotificationCard.setOnClickListener {
+            val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+            intent.putExtra(Settings.EXTRA_APP_PACKAGE, this.packageName)
+            startActivity(intent)
         }
     }
 

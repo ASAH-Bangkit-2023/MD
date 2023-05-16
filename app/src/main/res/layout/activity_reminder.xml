@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="800dp">
+        android:minHeight="900dp">
 
         <TextView
             android:id="@+id/header"
@@ -19,6 +19,44 @@
             android:text="@string/reminder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/allow_notification_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroud_warning"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintBottom_toTopOf="@id/clock_button"
+            app:layout_constraintEnd_toEndOf="@id/repeat_group"
+            app:layout_constraintStart_toStartOf="@id/repeat_group"
+            app:layout_constraintTop_toBottomOf="@id/header"
+            app:strokeColor="@color/text_warning"
+            app:strokeWidth="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/allow_notification"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_warning" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/click_allow"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_warning"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/clock_button"
@@ -33,7 +71,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header" />
+            app:layout_constraintTop_toBottomOf="@+id/allow_notification_card" />
 
         <TextView
             android:id="@+id/jam"

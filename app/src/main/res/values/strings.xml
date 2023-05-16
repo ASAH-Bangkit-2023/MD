@@ -35,4 +35,6 @@
     <string name="buang_sampah">Buang Sampah</string>
     <string name="cek_lokasi_tpa_terdekat">Cek Lokasi TPA Terdekat</string>
     <string name="cancel_pengingat">Cancel Pengingat</string>
+    <string name="allow_notification">Jangan lupa untuk mengaktifkan izin notifikasi untuk aplikasi ini!</string>
+    <string name="click_allow">klik disini untuk mengaktifkan</string>
 </resources>
