@@ -79,6 +79,7 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/_1" />
 
             <com.google.android.material.button.MaterialButton
@@ -86,6 +87,7 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/_3" />
 
             <com.google.android.material.button.MaterialButton
@@ -93,6 +95,7 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/_5" />
 
             <com.google.android.material.button.MaterialButton
@@ -100,6 +103,7 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/_7" />
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
@@ -107,10 +111,23 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/reminder_button"
             style="@style/SecondaryButton"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/set_pengingat"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toTopOf="@id/cancel_alarm"
+            app:layout_constraintEnd_toEndOf="@id/repeat_group"
+            app:layout_constraintStart_toStartOf="@id/repeat_group" />
+
+        <Button
+            android:id="@+id/cancel_alarm"
+            style="@style/PrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/cancel_pengingat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/repeat_group"
+            app:layout_constraintStart_toStartOf="@id/repeat_group" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">MD</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">ASAH</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login">Login</string>
     <string name="username">Username</string>
@@ -33,4 +32,7 @@
     <string name="galery">Galeri</string>
     <string name="cek_sampah">Cek Jenis Sampah</string>
     <string name="scan_sampah_image">Scan sampah image</string>
+    <string name="buang_sampah">Buang Sampah</string>
+    <string name="cek_lokasi_tpa_terdekat">Cek Lokasi TPA Terdekat</string>
+    <string name="cancel_pengingat">Cancel Pengingat</string>
 </resources>

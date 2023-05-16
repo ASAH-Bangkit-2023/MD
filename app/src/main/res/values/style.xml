@@ -21,9 +21,4 @@
         <item name="android:textColor">?attr/colorOnSecondary</item>
         <item name="android:backgroundTint">?attr/colorSecondary</item>
     </style>
-
-    <style name="RoundedShape">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
 </resources>
