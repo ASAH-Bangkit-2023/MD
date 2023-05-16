@@ -12,3 +12,4 @@
 - ui profile : 
 - ui about :
 - ui map :
+- reminder function : almost done (kurang tombol navigasi buat ngizinin notifikasi alarm)
