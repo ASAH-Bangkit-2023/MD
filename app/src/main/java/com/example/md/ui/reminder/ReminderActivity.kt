@@ -8,7 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.md.R
 import com.example.md.databinding.ActivityReminderBinding
-import com.example.md.ui.utils.AlarmViewModelFactory
+import com.example.md.ui.utils.ReminderViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -18,7 +18,7 @@ class ReminderActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListe
     private lateinit var reminderReceiver: ReminderReceiver
 
     private val viewModel by viewModels<ReminderViewModel> {
-        AlarmViewModelFactory.getInstance(this@ReminderActivity)
+        ReminderViewModelFactory.getInstance(this@ReminderActivity)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

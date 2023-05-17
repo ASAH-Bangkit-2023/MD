@@ -8,7 +8,10 @@ import com.example.md.remote.request.RegisterRequest
 import com.example.md.remote.response.ResultResponse
 import com.example.md.remote.retrofit.ApiService
 
-class AuthRepository(private val preference: AppPreference, private val service: ApiService) {
+class AuthRepository private constructor(
+    private val preference: AppPreference,
+    private val service: ApiService
+) {
 
     fun login(username: String, password: String) = liveData {
         emit(ResultResponse.Loading)
@@ -44,5 +47,17 @@ class AuthRepository(private val preference: AppPreference, private val service:
 
     suspend fun logout() {
         preference.logOut()
+    }
+
+    companion object {
+        @Volatile
+        private var instance: AuthRepository? = null
+
+        fun getInstance(preference: AppPreference, service: ApiService): AuthRepository =
+            instance ?: synchronized(this) {
+                AuthRepository(preference, service).apply {
+                    instance = this
+                }
+            }
     }
 }

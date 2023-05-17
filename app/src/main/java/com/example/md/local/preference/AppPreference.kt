@@ -5,7 +5,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
-import com.example.md.local.data.Alarm
+import com.example.md.local.data.Reminder
 import com.example.md.local.data.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -36,9 +36,9 @@ class AppPreference private constructor(private val dataStore: DataStore<Prefere
         }
     }
 
-    fun getAlarm(): Flow<Alarm> {
+    fun getAlarm(): Flow<Reminder> {
         return dataStore.data.map { preferences ->
-            Alarm(
+            Reminder(
                 preferences[HOUR] ?: "",
                 preferences[REPEAT] ?: 0
             )
