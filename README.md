@@ -13,6 +13,6 @@
 - ui about :
 - ui map :
 - reminder function : done
-- login function : progress
-- register function : progress
+- login function : almost done (tinggal  tunggu api dari cc)
+- register function : almost done (tinggal tunggu api dari cc)
 - blog function : progress
