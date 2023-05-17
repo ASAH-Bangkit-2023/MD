@@ -10,7 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="900dp">
+        android:minHeight="900dp"
+        android:padding="24dp">
 
         <TextView
             android:id="@+id/header"
@@ -37,9 +38,7 @@
             style="@style/Widget.Material3.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
             app:layout_constraintBottom_toTopOf="@+id/password_layout"
             app:layout_constraintTop_toBottomOf="@+id/register_image"
             tools:layout_editor_absoluteX="24dp">
@@ -59,8 +58,6 @@
             style="@style/Widget.Material3.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
             app:layout_constraintBottom_toTopOf="@+id/confirm_password"
             app:layout_constraintTop_toBottomOf="@+id/username_layout"
             tools:layout_editor_absoluteX="24dp">
@@ -80,8 +77,6 @@
             style="@style/Widget.Material3.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/register_button"
             app:layout_constraintTop_toBottomOf="@+id/password_layout"
@@ -102,8 +97,6 @@
             style="@style/SecondaryButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
             android:layout_marginBottom="16dp"
             android:text="@string/register"
             app:layout_constraintBottom_toTopOf="@id/or_have_an_accout"
@@ -124,8 +117,6 @@
             style="@style/PrimaryButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
             android:text="@string/login"
             app:layout_constraintBottom_toBottomOf="parent" />

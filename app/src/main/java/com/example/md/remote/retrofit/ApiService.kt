@@ -2,9 +2,11 @@ package com.example.md.remote.retrofit
 
 import com.example.md.remote.request.LoginRequest
 import com.example.md.remote.request.RegisterRequest
+import com.example.md.remote.response.BlogResponse
 import com.example.md.remote.response.LoginResponse
 import com.example.md.remote.response.RegisterResponse
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiService {
@@ -17,4 +19,7 @@ interface ApiService {
     suspend fun register(
         @Body request: RegisterRequest
     ): RegisterResponse
+
+    @GET("blog")
+    suspend fun getBlog(): BlogResponse
 }

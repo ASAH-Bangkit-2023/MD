@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
     tools:context=".ui.scan.ScanActivity">
 
     <TextView
@@ -20,19 +21,17 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="@string/scan_sampah_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header"
-        tools:src="@tools:sample/avatars"
-        android:contentDescription="@string/scan_sampah_image" />
+        tools:src="@tools:sample/avatars" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/camera_button"
         style="@style/SecondaryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:text="@string/camera"
         app:layout_constraintBottom_toTopOf="@id/galery_button"
@@ -43,8 +42,6 @@
         style="@style/SecondaryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginBottom="64dp"
         android:text="@string/galery"
         app:layout_constraintBottom_toTopOf="@id/cek_button"
@@ -55,8 +52,6 @@
         style="@style/PrimaryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:text="@string/cek_sampah"
         app:layout_constraintBottom_toBottomOf="parent" />

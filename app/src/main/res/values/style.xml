@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TextHeader">
+    <style name="TextHeader" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">32sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_margin">24dp</item>
+    </style>
+
+    <style name="TextTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TextCardTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TextDescription" parent="Widget.AppCompat.TextView">
+        <item name="android:justificationMode">inter_word</item>
+        <item name="lineHeight">32sp</item>
+    </style>
+
+    <style name="TextCardDescription" parent="Widget.AppCompat.TextView">
+        <item name="lineHeight">32sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:justificationMode">inter_word</item>
     </style>
 
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
@@ -20,5 +43,12 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/colorOnSecondary</item>
         <item name="android:backgroundTint">?attr/colorSecondary</item>
+    </style>
+
+    <style name="WarningCard" parent="Widget.Material3.CardView.Outlined">
+        <item name="cornerRadius">8dp</item>
+        <item name="strokeColor">@color/text_warning</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="android:backgroundTint">@color/backgroud_warning</item>
     </style>
 </resources>

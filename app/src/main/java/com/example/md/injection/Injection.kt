@@ -8,10 +8,12 @@ import com.example.md.local.preference.AppPreference
 import com.example.md.remote.retrofit.ApiConfig
 import com.example.md.repository.AlarmRepository
 import com.example.md.repository.AuthRepository
+import com.example.md.repository.BlogRepository
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("app")
 
 object Injection {
+    private val apiService = ApiConfig.getApiService()
     fun getAlarmRepository(context: Context): AlarmRepository {
         val dataStore = AppPreference.getInstace(context.dataStore)
         return AlarmRepository(dataStore)
@@ -19,7 +21,10 @@ object Injection {
 
     fun getAuthRepository(context: Context): AuthRepository {
         val dataStore = AppPreference.getInstace(context.dataStore)
-        val apiService = ApiConfig.getApiService()
         return AuthRepository(dataStore, apiService)
+    }
+
+    fun getBlogRepository(): BlogRepository {
+        return BlogRepository(apiService)
     }
 }

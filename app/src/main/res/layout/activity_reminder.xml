@@ -9,7 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="900dp">
+        android:minHeight="900dp"
+        android:padding="24dp">
 
         <TextView
             android:id="@+id/header"
@@ -22,16 +23,13 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/allow_notification_card"
+            style="@style/WarningCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/backgroud_warning"
-            app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toTopOf="@id/clock_button"
             app:layout_constraintEnd_toEndOf="@id/repeat_group"
             app:layout_constraintStart_toStartOf="@id/repeat_group"
-            app:layout_constraintTop_toBottomOf="@id/header"
-            app:strokeColor="@color/text_warning"
-            app:strokeWidth="3dp">
+            app:layout_constraintTop_toBottomOf="@id/header">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -79,7 +77,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/jam"
-            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/header_repeat"
             app:layout_constraintEnd_toEndOf="@id/clock_button"
             app:layout_constraintHorizontal_bias="0.5"
@@ -88,12 +85,11 @@
 
         <TextView
             android:id="@+id/header_repeat"
+            style="@style/TextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/ulang_setiap"
-            android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/repeat_group"
             app:layout_constraintStart_toStartOf="@id/header"
             app:layout_constraintTop_toBottomOf="@+id/jam" />
@@ -102,9 +98,7 @@
             android:id="@+id/repeat_group"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
             app:layout_constraintBottom_toTopOf="@+id/reminder_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

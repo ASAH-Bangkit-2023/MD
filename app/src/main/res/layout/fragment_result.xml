@@ -10,7 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="800dp">
+        android:minHeight="800dp"
+        android:padding="24dp">
 
         <TextView
             android:id="@+id/header"
@@ -26,6 +27,7 @@
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/result_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/header"
@@ -54,23 +56,20 @@
 
         <TextView
             android:id="@+id/tips_title"
+            style="@style/TextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/result_recycle"
             tools:text="@tools:sample/lorem" />
 
         <TextView
             android:id="@+id/description"
+            style="@style/TextDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:justificationMode="inter_word"
-            android:lineHeight="32sp"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tips_title"
