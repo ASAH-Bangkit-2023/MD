@@ -38,4 +38,7 @@
     <string name="allow_notification">Jangan lupa untuk mengaktifkan izin notifikasi untuk aplikasi ini!</string>
     <string name="click_allow">klik disini untuk mengaktifkan</string>
     <string name="result_image">result image</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="not_found_blog">Masih belum ada berita menarik buat kamu nih</string>
 </resources>

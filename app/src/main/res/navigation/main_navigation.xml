@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.md.ui.blog.BlogFragment"
+        android:name="com.asahteam.md.ui.blog.BlogFragment"
         android:label="fragment_blog"
         tools:layout="@layout/fragment_blog" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.md.ui.login.LoginFragment"
+        android:name="com.asahteam.md.ui.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.md.ui.register.RegisterFragment"
+        android:name="com.asahteam.md.ui.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register">
         <action

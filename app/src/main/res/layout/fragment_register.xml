@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="900dp"
+        android:minHeight="1050dp"
         android:padding="24dp">
 
         <TextView
@@ -34,13 +34,51 @@
             app:layout_constraintTop_toBottomOf="@id/header" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/username_layout"
+            android:id="@+id/full_name_layout"
             style="@style/Widget.Material3.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/password_layout"
+            app:layout_constraintBottom_toTopOf="@+id/email_layout"
             app:layout_constraintTop_toBottomOf="@+id/register_image"
+            tools:layout_editor_absoluteX="24dp">
+
+            <EditText
+                android:id="@+id/full_name_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:hint="@string/full_name"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_layout"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/username_layout"
+            app:layout_constraintTop_toBottomOf="@+id/full_name_layout"
+            tools:layout_editor_absoluteX="24dp">
+
+            <EditText
+                android:id="@+id/email_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="emailAddress"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username_layout"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/password_layout"
+            app:layout_constraintTop_toBottomOf="@+id/email_layout"
             tools:layout_editor_absoluteX="24dp">
 
             <EditText
