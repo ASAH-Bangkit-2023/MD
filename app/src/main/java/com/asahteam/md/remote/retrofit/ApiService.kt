@@ -1,20 +1,25 @@
 package com.asahteam.md.remote.retrofit
 
-import com.asahteam.md.remote.request.LoginRequest
 import com.asahteam.md.remote.request.RegisterRequest
 import com.asahteam.md.remote.response.BlogResponse
 import com.asahteam.md.remote.response.LoginResponse
 import com.asahteam.md.remote.response.RegisterResponse
 import retrofit2.http.Body
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
+    @FormUrlEncoded
     @POST("auth/login")
+    @Headers("Content-Type: application/x-www-form-urlencoded")
     suspend fun login(
-        @Body request: LoginRequest
+        @Field("username") username: String,
+        @Field("password") password: String
     ): LoginResponse
 
     @POST("auth/signup")
@@ -29,7 +34,7 @@ interface ApiService {
 
     @GET("news/{id}")
     suspend fun getBlog(
-        @Header("Authorization") token: Int,
-        @Path("id") id: String
+        @Header("Authorization") token: String,
+        @Path("id") id: Int
     ): BlogResponse
 }

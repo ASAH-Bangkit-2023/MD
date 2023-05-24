@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.result.ResultFragment">
+    tools:context=".ui.blogdetail.BlogDetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="800dp"
         android:padding="24dp">
 
         <TextView
@@ -18,50 +16,61 @@
             style="@style/TextHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/result"
+            android:text="@string/blog"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/result_image"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:id="@+id/thumbnail_image"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
             android:layout_marginTop="16dp"
-            android:contentDescription="@string/result_image"
+            android:contentDescription="@string/thumbail_blog"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/header"
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/result_organic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/result_image"
-            tools:text="@tools:sample/lorem" />
-
-        <TextView
-            android:id="@+id/result_recycle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/result_organic"
-            tools:text="@tools:sample/lorem" />
-
-        <TextView
-            android:id="@+id/tips_title"
+            android:id="@+id/title"
             style="@style/TextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/result_recycle"
+            app:layout_constraintTop_toBottomOf="@id/thumbnail_image"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/information_by"
+            style="@style/TextInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/by"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <TextView
+            android:id="@+id/information_author"
+            style="@style/TextInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/information_by"
+            app:layout_constraintTop_toTopOf="@id/information_by"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/information_date"
+            style="@style/TextInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/information_by"
             tools:text="@tools:sample/lorem" />
 
         <TextView
@@ -69,33 +78,20 @@
             style="@style/TextDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tips_title"
+            app:layout_constraintTop_toBottomOf="@id/information_by"
             tools:text="@tools:sample/lorem/random" />
 
-        <Button
-            android:id="@+id/trash_button"
-            style="@style/SecondaryButton"
-            android:layout_width="0dp"
+        <ProgressBar
+            android:id="@+id/progess_bar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/buang_sampah"
-            app:layout_constraintEnd_toEndOf="@id/description"
-            app:layout_constraintStart_toStartOf="@id/description"
-            app:layout_constraintTop_toBottomOf="@id/description" />
-
-        <Button
-            style="@style/PrimaryButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/cek_lokasi_tpa_terdekat"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/trash_button"
-            app:layout_constraintStart_toStartOf="@id/trash_button"
-            app:layout_constraintTop_toBottomOf="@id/trash_button" />
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

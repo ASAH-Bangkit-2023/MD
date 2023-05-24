@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.asahteam.md.repository.BlogRepository
 import com.asahteam.md.ui.blog.BlogViewModel
+import com.asahteam.md.ui.blogdetail.BlogDetailViewModel
 
 class BlogViewModelFactory private constructor(private val repository: BlogRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -12,6 +13,8 @@ class BlogViewModelFactory private constructor(private val repository: BlogRepos
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(BlogViewModel::class.java)) {
             return BlogViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(BlogDetailViewModel::class.java)) {
+            return BlogDetailViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

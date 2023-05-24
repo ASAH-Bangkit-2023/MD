@@ -1,11 +1,18 @@
 package com.asahteam.md.ui.blog
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.asahteam.md.databinding.BlogAdapterBinding
+import com.asahteam.md.remote.response.BlogResponse
+import com.bumptech.glide.Glide
 
-class BlogAdapter : RecyclerView.Adapter<BlogAdapter.ViewHolder>() {
+class BlogAdapter(
+    private val blogs: List<BlogResponse>,
+    private val onClick: (blog: BlogResponse, view: View) -> Unit
+) :
+    RecyclerView.Adapter<BlogAdapter.ViewHolder>() {
     class ViewHolder(val binding: BlogAdapterBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -15,10 +22,19 @@ class BlogAdapter : RecyclerView.Adapter<BlogAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return blogs.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val blog = blogs[position]
+
+        holder.binding.title.text = blog.title
+        holder.binding.description.text = blog.content
+
+        Glide.with(holder.itemView.context).load(blog.thumbnail).into(holder.binding.thumbnailImage)
+
+        holder.binding.containerBlog.setOnClickListener {
+            onClick(blog, it)
+        }
     }
 }

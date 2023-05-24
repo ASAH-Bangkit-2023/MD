@@ -1,6 +1,7 @@
 package com.asahteam.md.ui.login
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,6 +51,8 @@ class LoginFragment : Fragment() {
 
                 if (username.isNotEmpty() && password.isNotEmpty()) {
                     if (binding.usernameEt.error.isNullOrEmpty() || binding.passwordEt.error.isNullOrEmpty()) {
+                        Log.e("loginFragment", username)
+                        Log.e("loginFragment", password)
                         viewModel.login(username, password).observe(viewLifecycleOwner) { result ->
                             when (result) {
                                 is ResultResponse.Error -> {

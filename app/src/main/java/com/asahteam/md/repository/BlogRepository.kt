@@ -30,7 +30,7 @@ class BlogRepository private constructor(
         try {
             preference.getUser().collect {
                 val token = "Bearer ${it.accessToken}"
-                val response = service.getBlog(id, token)
+                val response = service.getBlog(token, id)
                 emit(ResultResponse.Success(response))
             }
         } catch (e: Exception) {

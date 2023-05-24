@@ -3,7 +3,6 @@ package com.asahteam.md.repository
 import androidx.lifecycle.liveData
 import com.asahteam.md.local.data.User
 import com.asahteam.md.local.preference.AppPreference
-import com.asahteam.md.remote.request.LoginRequest
 import com.asahteam.md.remote.request.RegisterRequest
 import com.asahteam.md.remote.response.ResultResponse
 import com.asahteam.md.remote.retrofit.ApiService
@@ -16,7 +15,7 @@ class AuthRepository private constructor(
     fun login(username: String, password: String) = liveData {
         emit(ResultResponse.Loading)
         try {
-            val response = service.login(LoginRequest(username, password))
+            val response = service.login(username, password)
             emit(ResultResponse.Success(response))
         } catch (e: Exception) {
             emit(ResultResponse.Error(e.message.toString()))
@@ -29,7 +28,7 @@ class AuthRepository private constructor(
             val response = service.register(RegisterRequest(username, password, email, fullName))
             emit(ResultResponse.Success(response))
         } catch (e: Exception) {
-            emit(ResultResponse.Error(e.message.toString()))
+            emit(ResultResponse.Error(e.toString()))
         }
     }
 
