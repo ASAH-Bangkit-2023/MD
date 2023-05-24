@@ -3,6 +3,7 @@
 - ui login : done
 - ui register : done
 - ui blog : done
+- ui detail blog : done
 - bottom navigation : done
 - ui result : done
 - ui reminder : done
@@ -12,7 +13,8 @@
 - ui profile : 
 - ui about :
 - ui map :
-- reminder function : done
-- login function : done
-- register function : done
-- blog function : progress
+- reminder feature : done
+- login feature : done
+- register feature : done
+- blog list feature : done
+- blog detail feature : done
