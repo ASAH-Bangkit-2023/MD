@@ -42,4 +42,14 @@
     <string name="email">Email</string>
     <string name="not_found_blog">Masih belum ada berita menarik buat kamu nih</string>
     <string name="by">oleh :</string>
+    <string name="image_profile">Image Profile</string>
+    <string name="our_team">Our Team</string>
+    <string name="nama1">Muhammad Fikri Raihan A.</string>
+    <string name="nama2">Zikri Kholifah Nur</string>
+    <string name="nama3">Ridwan Ridlo Nugroho</string>
+    <string name="nama4">Irzan Luthfi Al Khalid</string>
+    <string name="nama5">Edwin Mahendra</string>
+    <string name="nama6">Johannes Baptista A. P.</string>
+    <string name="tukar_point">Tukar Point</string>
+    <string name="ingat_buang_sampah">Ingat Buang Sampah</string>
 </resources>
