@@ -8,11 +8,11 @@
 - ui result : done
 - ui reminder : done
 - ui scan sampah : done
-- ui history : progress
-- ui reward : progress
-- ui profile : 
-- ui about :
-- ui map :
+- ui history : done
+- ui reward : done
+- ui profile : done
+- ui about : done
+- ui map : 
 - reminder feature : done
 - login feature : done
 - register feature : done
