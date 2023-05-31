@@ -3,6 +3,7 @@ package com.asahteam.md.local.preference
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.asahteam.md.local.data.Reminder
@@ -15,20 +16,23 @@ class AppPreference private constructor(private val dataStore: DataStore<Prefere
     private val REPEAT = longPreferencesKey("repeat")
     private val ACCESS_TOKEN = stringPreferencesKey("access_token")
     private val REFRESH_TOKEN = stringPreferencesKey("refresh_token")
+    private val DATE = intPreferencesKey("date")
 
     fun getUser(): Flow<User> {
         return dataStore.data.map { preferences ->
             User(
                 preferences[ACCESS_TOKEN] ?: "",
-                preferences[REFRESH_TOKEN] ?: ""
+                preferences[REFRESH_TOKEN] ?: "",
+                preferences[DATE] ?: 0
             )
         }
     }
 
-    suspend fun saveUser(accessToken: String, refreshToken: String) {
+    suspend fun saveUser(accessToken: String, refreshToken: String, date: Int) {
         dataStore.edit { preferences ->
             preferences[ACCESS_TOKEN] = accessToken
             preferences[REFRESH_TOKEN] = refreshToken
+            preferences[DATE] = date
         }
     }
 
@@ -36,6 +40,7 @@ class AppPreference private constructor(private val dataStore: DataStore<Prefere
         dataStore.edit { preferences ->
             preferences[ACCESS_TOKEN] = ""
             preferences[REFRESH_TOKEN] = ""
+            preferences[DATE] = 0
         }
     }
 

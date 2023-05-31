@@ -1,7 +1,6 @@
 package com.asahteam.md.ui.login
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +13,7 @@ import com.asahteam.md.databinding.FragmentLoginBinding
 import com.asahteam.md.local.data.User
 import com.asahteam.md.remote.response.ResultResponse
 import com.asahteam.md.ui.utils.AuthViewModelFactory
+import java.time.LocalDate
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -51,8 +51,6 @@ class LoginFragment : Fragment() {
 
                 if (username.isNotEmpty() && password.isNotEmpty()) {
                     if (binding.usernameEt.error.isNullOrEmpty() || binding.passwordEt.error.isNullOrEmpty()) {
-                        Log.e("loginFragment", username)
-                        Log.e("loginFragment", password)
                         viewModel.login(username, password).observe(viewLifecycleOwner) { result ->
                             when (result) {
                                 is ResultResponse.Error -> {
@@ -71,7 +69,8 @@ class LoginFragment : Fragment() {
                                     viewModel.saveUser(
                                         User(
                                             result.data.accessToken,
-                                            result.data.refreshToken
+                                            result.data.refreshToken,
+                                            LocalDate.now().dayOfMonth
                                         )
                                     )
                                     binding.root.findNavController()

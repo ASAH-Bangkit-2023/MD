@@ -11,6 +11,7 @@ import com.asahteam.md.R
 import com.asahteam.md.databinding.ActivityMainBinding
 import com.asahteam.md.ui.utils.AuthViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel.getUser().observe(this@MainActivity) { user ->
+            if (LocalDate.now().dayOfMonth != user.date) {
+                viewModel.logOut()
+            }
             if (user.accessToken.isEmpty() || user.refreshToken.isEmpty()) {
                 Navigation.findNavController(this@MainActivity, R.id.fragmentContainerView)
                     .navigate(R.id.loginFragment)

@@ -33,7 +33,7 @@ class AuthRepository private constructor(
     }
 
     suspend fun saveUser(user: User) {
-        preference.saveUser(user.accessToken, user.accessToken)
+        preference.saveUser(user.accessToken, user.accessToken, user.date)
     }
 
     suspend fun logout() {

@@ -1,6 +1,7 @@
 package com.asahteam.md.ui.blogdetail
 
 import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,7 +56,8 @@ class BlogDetailFragment : Fragment() {
                                 title.text = result.data.title
                                 informationAuthor.text = result.data.author
                                 informationDate.text = result.data.dateNews
-                                description.text = result.data.content
+                                description.text =
+                                    Html.fromHtml(result.data.content, Html.FROM_HTML_MODE_COMPACT)
                                 Glide.with(requireContext()).load(result.data.thumbnail)
                                     .into(it.thumbnailImage)
                             }

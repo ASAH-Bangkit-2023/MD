@@ -27,7 +27,7 @@ interface ApiService {
         @Body request: RegisterRequest
     ): RegisterResponse
 
-    @GET("news")
+    @GET("news/")
     suspend fun getBlogs(
         @Header("Authorization") token: String
     ): List<BlogResponse>

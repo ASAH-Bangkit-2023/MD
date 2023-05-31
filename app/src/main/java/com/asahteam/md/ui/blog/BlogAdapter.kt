@@ -1,5 +1,6 @@
 package com.asahteam.md.ui.blog
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +30,7 @@ class BlogAdapter(
         val blog = blogs[position]
 
         holder.binding.title.text = blog.title
-        holder.binding.description.text = blog.content
+        holder.binding.description.text = Html.fromHtml(blog.content, Html.FROM_HTML_MODE_COMPACT)
 
         Glide.with(holder.itemView.context).load(blog.thumbnail).into(holder.binding.thumbnailImage)
 

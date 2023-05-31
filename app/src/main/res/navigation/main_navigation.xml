@@ -57,14 +57,19 @@
     </fragment>
 
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/navigation_profile"
         android:name="com.asahteam.md.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/aboutFragment"
+        android:id="@+id/navigation_about"
         android:name="com.asahteam.md.ui.about.AboutFragment"
         android:label="AboutFragment"
-        tools:layout="@layout/fragment_about"/>
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/navigation_maps"
+        android:name="com.asahteam.md.ui.map.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
 </navigation>
