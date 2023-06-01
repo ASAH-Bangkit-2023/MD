@@ -20,7 +20,7 @@
         tools:targetApi="31">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="{API - KEY}" />
+            android:value="AIzaSyAiiczEiM2ixmsdUT7mCww4RqQhI92cDus" />
 
         <receiver
             android:name=".ui.reminder.ReminderReceiver"

@@ -3,6 +3,7 @@ package com.asahteam.md.remote.retrofit
 import com.asahteam.md.remote.request.RegisterRequest
 import com.asahteam.md.remote.response.BlogResponse
 import com.asahteam.md.remote.response.LoginResponse
+import com.asahteam.md.remote.response.MapsResponse
 import com.asahteam.md.remote.response.RegisterResponse
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -12,6 +13,7 @@ import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
     @FormUrlEncoded
@@ -37,4 +39,12 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Path("id") id: Int
     ): BlogResponse
+
+    @GET("json")
+    suspend fun getMaps(
+        @Query("keyword") keyword: String,
+        @Query("radius") radius: Int,
+        @Query("location") location: String,
+        @Query("key") key: String
+    ): MapsResponse
 }

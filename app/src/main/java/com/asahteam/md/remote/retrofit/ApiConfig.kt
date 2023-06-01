@@ -6,9 +6,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiConfig {
-    private val base_url = "https://cloud-computing-asah-hhoivlttoa-uc.a.run.app/"
+    val base_url = "https://cloud-computing-asah-hhoivlttoa-uc.a.run.app/"
+    val map_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/"
 
-    fun getApiService(): ApiService {
+    fun getApiService(url: String): ApiService {
         val loggingInterceptor =
             if (com.asahteam.md.BuildConfig.DEBUG) {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -19,7 +20,7 @@ object ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl(base_url)
+            .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
