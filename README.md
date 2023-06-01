@@ -12,9 +12,10 @@
 - ui reward : done
 - ui profile : done
 - ui about : done
-- ui map : 
+- ui map : done
 - reminder feature : done
 - login feature : done
 - register feature : done
 - blog list feature : done
 - blog detail feature : done
+- maps feature : done
