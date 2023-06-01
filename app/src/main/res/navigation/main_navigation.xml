@@ -60,7 +60,11 @@
         android:id="@+id/navigation_profile"
         android:name="com.asahteam.md.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_navigation_profile_to_reminderActivity"
+            app:destination="@id/reminderActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_about"
@@ -72,4 +76,9 @@
         android:name="com.asahteam.md.ui.map.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
+    <activity
+        android:id="@+id/reminderActivity"
+        android:name="com.asahteam.md.ui.reminder.ReminderActivity"
+        android:label="activity_reminder"
+        tools:layout="@layout/activity_reminder" />
 </navigation>

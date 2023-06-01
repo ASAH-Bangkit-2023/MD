@@ -124,6 +124,7 @@ class MapFragment : Fragment() {
             fusedLocationClient.lastLocation.addOnSuccessListener { location ->
                 if (location != null) {
                     this@MapFragment.location = location
+                    viewModel.setLocation(location.latitude, location.longitude)
                 } else {
                     Toast.makeText(
                         context,
@@ -156,9 +157,6 @@ class MapFragment : Fragment() {
         binding?.let { loc ->
             loc.checkLocation.setOnClickListener {
                 getMyLastLocation()
-                location?.let {
-                    viewModel.setLocation(it.latitude, it.longitude)
-                }
             }
         }
         viewModel.maps.observe(viewLifecycleOwner) { result ->

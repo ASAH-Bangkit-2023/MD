@@ -12,7 +12,7 @@ class MapsRepository private constructor(private val service: ApiService) {
                 "tempat pembuangan akhir tpa tps sampah",
                 20000,
                 "$lat, $lng",
-                "AIzaSyAiiczEiM2ixmsdUT7mCww4RqQhI92cDus"
+                "{YOUR_API_KEY}"
             )
             emit(ResultResponse.Success(response))
             if (response.results.isEmpty()) {
