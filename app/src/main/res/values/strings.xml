@@ -54,4 +54,5 @@
     <string name="ingat_buang_sampah">Ingat Buang Sampah</string>
     <string name="blocker">Blocker</string>
     <string name="not_found_location">Sepertinya masih belum ada tempat pembuangan sampah di dekat lokasimu nih</string>
+    <string name="about_description">ASAH is an application to encourage people to manage their waste properly by giving them rewards if they successfully manage their waste properly, where they need to sort their waste first and then they can dispose of or give their waste to recycling agencies around them</string>
 </resources>
