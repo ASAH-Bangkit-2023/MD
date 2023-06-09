@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.asahteam.md.injection.Injection
 import com.asahteam.md.repository.PointRepository
+import com.asahteam.md.ui.result.ResultViewModel
 import com.asahteam.md.ui.reward.RewardViewModel
 
 class RewardViewModelFactory private constructor(
@@ -15,6 +16,8 @@ class RewardViewModelFactory private constructor(
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RewardViewModel::class.java)) {
             return RewardViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(ResultViewModel::class.java)) {
+            return ResultViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

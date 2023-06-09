@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -150,7 +149,6 @@ class ScanFragment : Fragment() {
                             it.progessBar.visibility = View.GONE
                             it.blocker.visibility = View.GONE
                         }
-                        Log.e("upload", result.error)
                         Toast.makeText(context, result.error, Toast.LENGTH_SHORT).show()
                     }
 

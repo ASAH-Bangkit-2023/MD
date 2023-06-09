@@ -35,6 +35,18 @@ private constructor(
         }
     }
 
+    fun addPoint() = liveData {
+        emit(ResultResponse.Loading)
+        try {
+            preference.getUser().collect {
+                val response = service.addPoint("Bearer ${it.accessToken}", 500)
+                emit(ResultResponse.Success(response))
+            }
+        } catch (e: Exception) {
+            emit(ResultResponse.Error(e.message.toString()))
+        }
+    }
+
     companion object {
         @Volatile
         private var instance: PointRepository? = null
