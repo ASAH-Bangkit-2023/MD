@@ -15,5 +15,8 @@ data class ScanResponse(
     val message: String,
 
     @field:SerializedName("action")
-    val action: String?
+    val action: String?,
+
+    @field:SerializedName("date_scan")
+    val dateScan: String,
 )

@@ -45,6 +45,11 @@ class ProfileFragment : Fragment() {
                 viewModel.logout()
             }
         }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         viewModel.getPoint().observe(viewLifecycleOwner) { result ->
             when (result) {
                 is ResultResponse.Error -> {

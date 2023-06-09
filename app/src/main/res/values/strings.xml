@@ -63,4 +63,13 @@
     <string name="about_description">ASAH is an application to encourage people to manage their waste properly by giving them rewards if they successfully manage their waste properly, where they need to sort their waste first and then they can dispose of or give their waste to recycling agencies around them</string>
     <string name="log_out">Log Out</string>
     <string name="kamu_belum_pernah_scan_sampah_nih">Kamu belum pernah scan sampah nih !</string>
+    <string name="peringatan">Peringatan</string>
+    <string name="peringatan_deskripsi">Fitur ini masih berupa prototype, menukar akan mengurangi point anda, tetapi anda belum akan mendapatkan apapun !</string>
+    <string name="rewardTitle1">Voucher Tokopedia</string>
+    <string name="_500_point">500 Point</string>
+    <string name="rewardDesc1">Voucher Toko adalah fitur yang memungkinkan Penjual untuk melakukan kegiatan promo penjualan secara terbatas yang dilakukan melalui Situs/Aplikasi.</string>
+    <string name="rewardTitle2">Voucher Pulsa 50k</string>
+    <string name="_1000_point">1000 Point</string>
+    <string name="rewardDesc2">Voucher pulsa telkomsel sebesar 50K yang bisa langsung ditukarkan menggunakan kode voucher yang didapatkan dari penukaran item ini.</string>
+    <string name="rewardTitle3">Voucher Game Online</string>
 </resources>

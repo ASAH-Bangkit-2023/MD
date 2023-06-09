@@ -125,6 +125,7 @@ class ScanFragment : Fragment() {
                     val myFile = uriToFile(uri, requireContext())
                     myFile.let { file ->
                         getFile = file
+                        currentPhotoPath = file.path
                         binding?.scanImage?.setImageBitmap(BitmapFactory.decodeFile(file.path))
                     }
                 }

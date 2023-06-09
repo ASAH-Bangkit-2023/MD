@@ -22,6 +22,19 @@ private constructor(
         }
     }
 
+    fun redeemPoint(points: Int) = liveData {
+        emit(ResultResponse.Loading)
+        try {
+            preference.getUser().collect {
+                val point = (points)
+                val response = service.redeemPoint("Bearer ${it.accessToken}", point)
+                emit(ResultResponse.Success(response))
+            }
+        } catch (e: Exception) {
+            emit(ResultResponse.Error(e.message.toString()))
+        }
+    }
+
     companion object {
         @Volatile
         private var instance: PointRepository? = null

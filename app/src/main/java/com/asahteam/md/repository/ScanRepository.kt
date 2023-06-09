@@ -23,6 +23,19 @@ class ScanRepository private constructor(
         }
     }
 
+    fun getHistory() = liveData {
+        emit(ResultResponse.Loading)
+        try {
+            preference.getUser().collect {
+                val token = "Bearer ${it.accessToken}"
+                val response = service.getHistory(token)
+                emit(ResultResponse.Success(response))
+            }
+        } catch (e: Exception) {
+            emit(ResultResponse.Error(e.message.toString()))
+        }
+    }
+
     companion object {
         @Volatile
         private var instance: ScanRepository? = null
