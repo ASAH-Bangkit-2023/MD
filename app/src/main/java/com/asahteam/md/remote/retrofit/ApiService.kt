@@ -4,7 +4,6 @@ import com.asahteam.md.remote.request.RegisterRequest
 import com.asahteam.md.remote.response.BlogResponse
 import com.asahteam.md.remote.response.LoginResponse
 import com.asahteam.md.remote.response.MapsResponse
-import com.asahteam.md.remote.response.PointResponse
 import com.asahteam.md.remote.response.RegisterResponse
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -40,10 +39,6 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Path("id") id: Int
     ): BlogResponse
-
-
-    @GET("point/check")
-    suspend fun getPoint(@Header("Authorization") token: String): PointResponse
 
     @GET("json")
     suspend fun getMaps(

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import com.asahteam.md.R
 import com.asahteam.md.databinding.FragmentBlogBinding
 import com.asahteam.md.remote.response.ResultResponse
 import com.asahteam.md.ui.utils.BlogViewModelFactory
@@ -29,6 +30,12 @@ class BlogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding?.let {
+            it.scanImageButton.setOnClickListener {
+                it.findNavController().navigate(R.id.action_navigation_home_to_scanActivity)
+            }
+        }
+
         viewModel.getBlogs().observe(viewLifecycleOwner) { result ->
             when (result) {
                 is ResultResponse.Error -> {
