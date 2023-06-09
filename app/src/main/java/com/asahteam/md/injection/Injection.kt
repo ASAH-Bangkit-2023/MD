@@ -11,6 +11,7 @@ import com.asahteam.md.remote.retrofit.ApiConfig.map_url
 import com.asahteam.md.repository.AuthRepository
 import com.asahteam.md.repository.BlogRepository
 import com.asahteam.md.repository.MapsRepository
+import com.asahteam.md.repository.PointRepository
 import com.asahteam.md.repository.ReminderRepository
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("app")
@@ -30,6 +31,11 @@ object Injection {
     fun getBlogRepository(context: Context): BlogRepository {
         val dataStore = AppPreference.getInstace(context.dataStore)
         return BlogRepository.getInstance(apiService, dataStore)
+    }
+
+    fun getPointRepository(context: Context): PointRepository {
+        val dataStore = AppPreference.getInstace(context.dataStore)
+        return PointRepository.getInstance(apiService, dataStore)
     }
 
     fun getMapsRepository(): MapsRepository {

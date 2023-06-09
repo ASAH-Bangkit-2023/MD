@@ -23,10 +23,10 @@
         android:layout_height="200dp"
         android:layout_marginTop="36dp"
         android:contentDescription="@string/image_profile"
+        android:src="@drawable/profil_ridwan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/header" />
 
     <TextView
         android:id="@+id/profile_name"
