@@ -54,13 +54,5 @@
     <string name="ingat_buang_sampah">Ingat Buang Sampah</string>
     <string name="blocker">Blocker</string>
     <string name="not_found_location">Sepertinya masih belum ada tempat pembuangan sampah di dekat lokasimu nih</string>
-    <string name="about_ASAH">ASAH is an application to encourage people to manage their waste properly by giving them rewards if they successfully manage their waste properly, where they need to sort their waste first and then they can dispose of or give their waste to recycling agencies around them</string>
-    <string name="user">User</string>
-    <string name="_1000_point">1000 Point</string>
-    <string name="desc1">Telkom University\nC360DSX3486</string>
-    <string name="desc2">Telkom University\nC360DSX0876</string>
-    <string name="desc3">Universitas Negeri Semarang\nA286DSX0989</string>
-    <string name="desc4">Universitas Negeri Semarang\nA286DKX3839</string>
-    <string name="desc5">Universitas Kristen Duta Wacana\nM222DSX0118</string>
-    <string name="desc6">Universitas Kristen Duta Wacana\nM222DSX1529</string>
+    <string name="about_description">ASAH is an application to encourage people to manage their waste properly by giving them rewards if they successfully manage their waste properly, where they need to sort their waste first and then they can dispose of or give their waste to recycling agencies around them</string>
 </resources>
