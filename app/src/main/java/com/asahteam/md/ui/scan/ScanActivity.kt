@@ -15,14 +15,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import androidx.navigation.findNavController
 import com.asahteam.md.databinding.ActivityScanBinding
 import com.asahteam.md.remote.response.ResultResponse
-import com.asahteam.md.ui.blog.BlogAdapter
-import com.asahteam.md.ui.blog.BlogFragmentDirections
 import com.asahteam.md.ui.utils.ScanViewModelFactory
 import com.asahteam.md.ui.utils.createCustomTempFile
 import com.asahteam.md.ui.utils.reduceFileImage
@@ -144,30 +140,31 @@ class ScanActivity : AppCompatActivity() {
             viewModel.scanWaste(imageMultipart).observe(this) { result ->
                 when (result) {
                     is ResultResponse.Error -> {
-                        binding?.let {
-                            it.progessBar.visibility = View.GONE
+                        binding.apply {
+                            progessBar.visibility = View.GONE
+                            blocker.visibility = View.GONE
                         }
-                        Log.e("upload",  result.error)
+                        Log.e("upload", result.error)
                         Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
                     }
 
                     is ResultResponse.Loading -> {
-                        binding?.let {
-                            it.progessBar.visibility = View.VISIBLE
+                        binding.apply {
+                            progessBar.visibility = View.VISIBLE
+                            blocker.visibility = View.VISIBLE
                         }
                     }
 
                     is ResultResponse.NotFound -> {
-                        binding?.let {
-                            it.progessBar.visibility = View.GONE
-                        }
+
                     }
 
                     is ResultResponse.Success -> {
-                        binding?.let {
-                            it.progessBar.visibility = View.GONE
+                        binding.apply {
+                            progessBar.visibility = View.GONE
+                            blocker.visibility = View.GONE
 
-//                            it.cekButton.findNavController().navigate
+                            //                            it.cekButton.findNavController().navigate
                         }
                     }
                 }

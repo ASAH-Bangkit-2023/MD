@@ -42,6 +42,7 @@ class BlogFragment : Fragment() {
                     binding?.let {
                         it.progessBar.visibility = View.GONE
                         it.notFoundTv.visibility = View.GONE
+                        it.blocker.visibility = View.GONE
                     }
                     Toast.makeText(context, result.error, Toast.LENGTH_SHORT).show()
                 }
@@ -49,6 +50,7 @@ class BlogFragment : Fragment() {
                 is ResultResponse.Loading -> {
                     binding?.let {
                         it.progessBar.visibility = View.VISIBLE
+                        it.blocker.visibility = View.VISIBLE
                         it.notFoundTv.visibility = View.GONE
                     }
                 }
@@ -56,6 +58,7 @@ class BlogFragment : Fragment() {
                 is ResultResponse.NotFound -> {
                     binding?.let {
                         it.progessBar.visibility = View.GONE
+                        it.blocker.visibility = View.GONE
                         it.notFoundTv.visibility = View.VISIBLE
                     }
                 }
@@ -64,6 +67,7 @@ class BlogFragment : Fragment() {
                     binding?.let {
                         it.progessBar.visibility = View.GONE
                         it.notFoundTv.visibility = View.GONE
+                        it.blocker.visibility = View.GONE
                         it.containerRv.adapter = BlogAdapter(result.data) { blog, view ->
                             val toDetail =
                                 BlogFragmentDirections.actionNavigationHomeToBlogDetailFragment()

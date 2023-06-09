@@ -3,15 +3,20 @@ package com.asahteam.md.ui.utils
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.asahteam.md.injection.Injection
+import com.asahteam.md.repository.AuthRepository
 import com.asahteam.md.repository.PointRepository
 import com.asahteam.md.ui.profile.ProfileViewModel
 
-class ProfileViewModelFactory private constructor(private val repository: PointRepository) :
+class ProfileViewModelFactory private constructor(
+    private val repository: PointRepository,
+    private val authRepository: AuthRepository
+) :
     ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
-            return ProfileViewModel(repository) as T
+            return ProfileViewModel(repository, authRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
@@ -22,7 +27,8 @@ class ProfileViewModelFactory private constructor(private val repository: PointR
         fun getInstance(context: Context): ProfileViewModelFactory =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: ProfileViewModelFactory(
-                    com.asahteam.md.injection.Injection.getPointRepository(context)
+                    Injection.getPointRepository(context),
+                    Injection.getAuthRepository(context)
                 )
             }.also { INSTANCE = it }
     }

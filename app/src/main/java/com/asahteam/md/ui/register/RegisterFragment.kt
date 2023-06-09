@@ -76,17 +76,20 @@ class RegisterFragment : Fragment() {
                             when (result) {
                                 is ResultResponse.Error -> {
                                     binding.progessBar.visibility = View.GONE
+                                    binding.blocker.visibility = View.GONE
                                     Toast.makeText(context, result.error, Toast.LENGTH_SHORT).show()
                                 }
 
                                 is ResultResponse.Loading -> {
                                     binding.progessBar.visibility = View.VISIBLE
+                                    binding.blocker.visibility = View.VISIBLE
                                 }
 
                                 is ResultResponse.NotFound -> {}
 
                                 is ResultResponse.Success -> {
                                     binding.progessBar.visibility = View.GONE
+                                    binding.blocker.visibility = View.GONE
                                     binding.root.findNavController()
                                         .navigate(R.id.action_registerFragment_to_loginFragment)
                                 }

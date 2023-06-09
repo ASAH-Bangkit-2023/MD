@@ -38,6 +38,7 @@ class BlogDetailFragment : Fragment() {
                     is ResultResponse.Error -> {
                         binding?.let {
                             it.progessBar.visibility = View.GONE
+                            it.blocker.visibility = View.GONE
                         }
                         Toast.makeText(context, result.error, Toast.LENGTH_SHORT).show()
                     }
@@ -45,6 +46,7 @@ class BlogDetailFragment : Fragment() {
                     is ResultResponse.Loading -> {
                         binding?.let {
                             it.progessBar.visibility = View.VISIBLE
+                            it.blocker.visibility = View.VISIBLE
                         }
                     }
 
@@ -53,6 +55,7 @@ class BlogDetailFragment : Fragment() {
                         binding?.let {
                             it.apply {
                                 progessBar.visibility = View.GONE
+                                it.blocker.visibility = View.GONE
                                 title.text = result.data.title
                                 informationAuthor.text = result.data.author
                                 informationDate.text = result.data.dateNews

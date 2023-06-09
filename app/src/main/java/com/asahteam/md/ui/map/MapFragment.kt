@@ -163,7 +163,8 @@ class MapFragment : Fragment() {
             when (result) {
                 is ResultResponse.Error -> {
                     binding?.let {
-                        it.progressBar.visibility = View.GONE
+                        it.progessBar.visibility = View.GONE
+                        it.blocker.visibility = View.GONE
                         it.notFoundTv.visibility = View.GONE
                     }
                     Toast.makeText(context, result.error, Toast.LENGTH_LONG).show()
@@ -172,21 +173,23 @@ class MapFragment : Fragment() {
 
                 is ResultResponse.Loading -> {
                     binding?.let {
-                        it.progressBar.visibility = View.VISIBLE
+                        it.progessBar.visibility = View.VISIBLE
+                        it.blocker.visibility = View.VISIBLE
                         it.notFoundTv.visibility = View.GONE
                     }
                 }
 
                 is ResultResponse.NotFound -> {
                     binding?.let {
-                        it.progressBar.visibility = View.GONE
+                        it.progessBar.visibility = View.GONE
+                        it.blocker.visibility = View.GONE
                         it.notFoundTv.visibility = View.VISIBLE
                     }
                 }
 
                 is ResultResponse.Success -> {
                     binding?.let {
-                        it.progressBar.visibility = View.GONE
+                        it.progessBar.visibility = View.GONE
                         it.notFoundTv.visibility = View.GONE
                     }
                     locations.clear()

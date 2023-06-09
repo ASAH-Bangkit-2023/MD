@@ -41,12 +41,16 @@ class ProfileFragment : Fragment() {
             it.tukarPoint.setOnClickListener {
                 findNavController().navigate((R.id.action_navigation_profile_to_rewardActivity))
             }
+            it.logout.setOnClickListener {
+                viewModel.logout()
+            }
         }
         viewModel.getPoint().observe(viewLifecycleOwner) { result ->
             when (result) {
                 is ResultResponse.Error -> {
                     binding?.let {
                         it.progessBar.visibility = View.GONE
+                        it.blocker.visibility = View.GONE
                     }
                     Toast.makeText(context, result.error, Toast.LENGTH_LONG).show()
                 }
@@ -54,6 +58,7 @@ class ProfileFragment : Fragment() {
                 ResultResponse.Loading -> {
                     binding?.let {
                         it.progessBar.visibility = View.VISIBLE
+                        it.blocker.visibility = View.VISIBLE
                     }
                 }
 
@@ -64,6 +69,7 @@ class ProfileFragment : Fragment() {
                 is ResultResponse.Success -> {
                     binding?.let {
                         it.progessBar.visibility = View.GONE
+                        it.blocker.visibility = View.GONE
                         it.profileName.text = result.data.username
                         it.profilePoint.text = result.data.totalPoints.toString()
                     }
