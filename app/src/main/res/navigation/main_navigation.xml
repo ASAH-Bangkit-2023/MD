@@ -14,6 +14,9 @@
             android:id="@+id/action_navigation_home_to_blogDetailFragment"
             app:destination="@id/blogDetailFragment"
             app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_navigation_home_to_scanActivity"
+            app:destination="@id/scanActivity" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -62,6 +65,12 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile">
         <action
+            android:id="@+id/action_navigation_profile_to_rewardActivity"
+            app:destination="@id/rewardActivity" />
+        <action
+            android:id="@+id/action_navigation_profile_to_historyActivity"
+            app:destination="@id/historyActivity" />
+        <action
             android:id="@+id/action_navigation_profile_to_reminderActivity"
             app:destination="@id/reminderActivity" />
     </fragment>
@@ -77,8 +86,28 @@
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
     <activity
+        android:id="@+id/rewardActivity"
+        android:name="com.asahteam.md.ui.reward.RewardActivity"
+        android:label="activity_reward"
+        tools:layout="@layout/activity_reward" />
+    <activity
+        android:id="@+id/historyActivity"
+        android:name="com.asahteam.md.ui.history.HistoryActivity"
+        android:label="activity_history"
+        tools:layout="@layout/activity_history" />
+    <activity
         android:id="@+id/reminderActivity"
         android:name="com.asahteam.md.ui.reminder.ReminderActivity"
         android:label="activity_reminder"
         tools:layout="@layout/activity_reminder" />
+    <activity
+        android:id="@+id/scanActivity"
+        android:name="com.asahteam.md.ui.scan.ScanActivity"
+        android:label="activity_scan"
+        tools:layout="@layout/activity_scan" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.asahteam.md.ui.result.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
 </navigation>

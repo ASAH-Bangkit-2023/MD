@@ -25,8 +25,14 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         
         binding?.let {
+            it.history.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_profile_to_historyActivity)
+            }
             it.ingatBuangSampah.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_profile_to_reminderActivity)
+            }
+            it.tukarPoint.setOnClickListener {
+                findNavController().navigate((R.id.action_navigation_profile_to_rewardActivity))
             }
         }
     }

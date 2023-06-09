@@ -4,14 +4,12 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.datastore.preferences.protobuf.Api
 import com.asahteam.md.local.preference.AppPreference
 import com.asahteam.md.remote.retrofit.ApiConfig
 import com.asahteam.md.remote.retrofit.ApiConfig.base_url
 import com.asahteam.md.remote.retrofit.ApiConfig.map_url
-import com.asahteam.md.repository.AuthRepository
-import com.asahteam.md.repository.BlogRepository
-import com.asahteam.md.repository.MapsRepository
-import com.asahteam.md.repository.ReminderRepository
+import com.asahteam.md.repository.*
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("app")
 
@@ -35,5 +33,10 @@ object Injection {
     fun getMapsRepository(): MapsRepository {
         val apiService = ApiConfig.getApiService(map_url)
         return MapsRepository.getInstance(apiService)
+    }
+
+    fun getScanRepository(context: Context): ScanRepository {
+        val dataStore = AppPreference.getInstace(context.dataStore)
+        return ScanRepository.getInstance(apiService, dataStore)
     }
 }

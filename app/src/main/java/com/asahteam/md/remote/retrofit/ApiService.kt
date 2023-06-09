@@ -1,19 +1,9 @@
 package com.asahteam.md.remote.retrofit
 
 import com.asahteam.md.remote.request.RegisterRequest
-import com.asahteam.md.remote.response.BlogResponse
-import com.asahteam.md.remote.response.LoginResponse
-import com.asahteam.md.remote.response.MapsResponse
-import com.asahteam.md.remote.response.RegisterResponse
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Headers
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+import com.asahteam.md.remote.response.*
+import okhttp3.MultipartBody
+import retrofit2.http.*
 
 interface ApiService {
     @FormUrlEncoded
@@ -47,4 +37,11 @@ interface ApiService {
         @Query("location") location: String,
         @Query("key") key: String
     ): MapsResponse
+
+    @Multipart
+    @POST("scan_waste/")
+    suspend fun scanWaste(
+        @Header("Authorization") token: String,
+        @Part file: MultipartBody.Part
+    ) : ScanResponse
 }
