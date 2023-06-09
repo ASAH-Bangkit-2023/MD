@@ -50,6 +50,12 @@
     <string name="nama4">Irzan Luthfi Al Khalid</string>
     <string name="nama5">Edwin Mahendra</string>
     <string name="nama6">Johannes Baptista A. P.</string>
+    <string name="desc1">Telkom University\nCloud Computing - C360DSX3486</string>
+    <string name="desc2">Telkom University\nCloud Computing - C360DSX0876</string>
+    <string name="desc3">Universitas Negeri Semarang\nMobile Development - A286DSX0989</string>
+    <string name="desc4">Universitas Negeri Semarang\nMobile Development - A286DSX3839</string>
+    <string name="desc5">Universitas Kristen Duta Wacana\nMachine Learning - M222DSX0118</string>
+    <string name="desc6">Universitas Kristen Duta Wacana\nMachine Learning - M222DSX1529</string>
     <string name="tukar_point">Tukar Point</string>
     <string name="ingat_buang_sampah">Ingat Buang Sampah</string>
     <string name="blocker">Blocker</string>

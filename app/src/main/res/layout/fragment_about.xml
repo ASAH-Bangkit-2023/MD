@@ -49,18 +49,19 @@
             android:id="@+id/our_profile_image1"
             android:layout_width="83dp"
             android:layout_height="83dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/profile"
             app:layout_constraintEnd_toStartOf="@id/our_profile_description1"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/our_team"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/our_team" />
 
         <TextView
             android:id="@+id/our_profile_name1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:text="@string/nama1"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -72,31 +73,31 @@
             android:id="@+id/our_profile_description1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:justificationMode="inter_word"
-            android:text=""
+            android:text="@string/desc1"
             app:layout_constraintBottom_toBottomOf="@id/our_profile_image1"
             app:layout_constraintEnd_toEndOf="@id/our_profile_name1"
             app:layout_constraintStart_toStartOf="@+id/our_profile_name1"
-            app:layout_constraintTop_toBottomOf="@+id/our_profile_name1"
-            tools:text="ini adalah deskripsi dari profile item tentang team bangkit" />
+            app:layout_constraintTop_toBottomOf="@+id/our_profile_name1" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/our_profile_image2"
             android:layout_width="83dp"
             android:layout_height="83dp"
             android:layout_marginTop="16dp"
+            android:src="@drawable/profile"
             app:layout_constraintEnd_toStartOf="@id/our_profile_name2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/our_profile_image1"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/our_profile_image1" />
 
         <TextView
             android:id="@+id/our_profile_name2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:text="@string/nama2"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -108,14 +109,13 @@
             android:id="@+id/our_profile_description2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:justificationMode="inter_word"
-            android:text=""
+            android:text="@string/desc2"
             app:layout_constraintBottom_toBottomOf="@id/our_profile_image2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/our_profile_name2"
-            app:layout_constraintTop_toBottomOf="@+id/our_profile_name2"
-            tools:text="ini adalah deskripsi dari profile item tentang team bangkit" />
+            app:layout_constraintTop_toBottomOf="@+id/our_profile_name2" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/our_profile_image3"
@@ -133,6 +133,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:text="@string/nama3"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -144,31 +145,31 @@
             android:id="@+id/our_profile_description3"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:justificationMode="inter_word"
-            android:text=""
+            android:text="@string/desc3"
             app:layout_constraintBottom_toBottomOf="@id/our_profile_image3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/our_profile_name3"
-            app:layout_constraintTop_toBottomOf="@+id/our_profile_name3"
-            tools:text="ini adalah deskripsi dari profile item tentang team bangkit" />
+            app:layout_constraintTop_toBottomOf="@+id/our_profile_name3" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/our_profile_image4"
             android:layout_width="83dp"
             android:layout_height="83dp"
             android:layout_marginTop="16dp"
+            android:src="@drawable/profil_irzan"
             app:layout_constraintEnd_toStartOf="@id/our_profile_name4"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/our_profile_image3"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/our_profile_image3" />
 
         <TextView
             android:id="@+id/our_profile_name4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:text="@string/nama4"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -181,31 +182,31 @@
             android:id="@+id/our_profile_description4"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:justificationMode="inter_word"
-            android:text=""
+            android:text="@string/desc4"
             app:layout_constraintBottom_toBottomOf="@id/our_profile_image4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/our_profile_name4"
-            app:layout_constraintTop_toBottomOf="@+id/our_profile_name4"
-            tools:text="ini adalah deskripsi dari profile item tentang team bangkit" />
+            app:layout_constraintTop_toBottomOf="@+id/our_profile_name4" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/our_profile_image5"
             android:layout_width="83dp"
             android:layout_height="83dp"
             android:layout_marginTop="16dp"
+            android:src="@drawable/profile"
             app:layout_constraintEnd_toStartOf="@id/our_profile_name5"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/our_profile_image4"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/our_profile_image4" />
 
         <TextView
             android:id="@+id/our_profile_name5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:text="@string/nama5"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -218,31 +219,31 @@
             android:id="@+id/our_profile_description5"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:justificationMode="inter_word"
-            android:text=""
+            android:text="@string/desc5"
             app:layout_constraintBottom_toBottomOf="@id/our_profile_image5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/our_profile_name5"
-            app:layout_constraintTop_toBottomOf="@+id/our_profile_name5"
-            tools:text="ini adalah deskripsi dari profile item tentang team bangkit" />
+            app:layout_constraintTop_toBottomOf="@+id/our_profile_name5" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/our_profile_image6"
             android:layout_width="83dp"
             android:layout_height="83dp"
             android:layout_marginTop="16dp"
+            android:src="@drawable/profile"
             app:layout_constraintEnd_toStartOf="@id/our_profile_name6"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/our_profile_image5"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/our_profile_image5" />
 
         <TextView
             android:id="@+id/our_profile_name6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:text="@string/nama6"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -255,14 +256,13 @@
             android:id="@+id/our_profile_description6"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:justificationMode="inter_word"
-            android:text=""
+            android:text="@string/desc6"
             app:layout_constraintBottom_toBottomOf="@id/our_profile_image6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.144"
             app:layout_constraintStart_toStartOf="@+id/our_profile_name6"
-            app:layout_constraintTop_toBottomOf="@+id/our_profile_name6"
-            tools:text="ini adalah deskripsi dari profile item tentang team bangkit" />
+            app:layout_constraintTop_toBottomOf="@+id/our_profile_name6" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
