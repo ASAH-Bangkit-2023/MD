@@ -1,15 +1,10 @@
 package com.asahteam.md.ui.history
 
-import android.text.Html
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.asahteam.md.databinding.BlogAdapterBinding
 import com.asahteam.md.databinding.HistoryAdapterBinding
 import com.asahteam.md.remote.response.ScanResponse
-import com.asahteam.md.ui.blog.BlogAdapter
-import com.bumptech.glide.Glide
 
 class HistoryAdapter(
     private val histories: List<ScanResponse>
@@ -18,8 +13,9 @@ class HistoryAdapter(
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = HistoryAdapterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return HistoryAdapter.ViewHolder(binding)
+        val binding =
+            HistoryAdapterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {

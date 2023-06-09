@@ -47,7 +47,7 @@ class ScanFragment : Fragment() {
             Toast.makeText(
                 requireContext(),
                 "Permission not granted, you need to grant the permission.",
-                Toast.LENGTH_SHORT
+                Toast.LENGTH_LONG
             ).show()
         }
     }

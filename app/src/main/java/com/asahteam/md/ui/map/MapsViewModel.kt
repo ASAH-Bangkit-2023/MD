@@ -18,7 +18,7 @@ class MapsViewModel(private val repository: MapsRepository) : ViewModel() {
         getMaps()
     }
 
-    fun getMaps() {
+    private fun getMaps() {
         maps.addSource(repository.getMaps(lat, lng)) {
             maps.value = it
         }

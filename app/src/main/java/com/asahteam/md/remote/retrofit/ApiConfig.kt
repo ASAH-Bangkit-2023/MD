@@ -6,8 +6,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiConfig {
-    val base_url = "https://cloud-computing-asah-hhoivlttoa-uc.a.run.app/"
-    val map_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/"
+    const val base_url = "https://cloud-computing-asah-hhoivlttoa-uc.a.run.app/"
+    const val map_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/"
 
     fun getApiService(url: String): ApiService {
         val loggingInterceptor =

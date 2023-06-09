@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.asahteam.md.injection.Injection
 import com.asahteam.md.repository.ScanRepository
 import com.asahteam.md.ui.history.HistoryViewModel
-import com.asahteam.md.ui.map.MapsViewModel
 import com.asahteam.md.ui.scan.ScanViewModel
 
-class ScanViewModelFactory private constructor(private val repository: ScanRepository): ViewModelProvider.NewInstanceFactory() {
+class ScanViewModelFactory private constructor(private val repository: ScanRepository) :
+    ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ScanViewModel::class.java)) {

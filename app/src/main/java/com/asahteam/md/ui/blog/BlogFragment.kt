@@ -31,8 +31,8 @@ class BlogFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.let {
-            it.scanImageButton.setOnClickListener {
-                it.findNavController().navigate(R.id.action_navigation_home_to_scanActivity)
+            it.scanImageButton.setOnClickListener { views ->
+                views.findNavController().navigate(R.id.action_navigation_home_to_scanActivity)
             }
         }
 

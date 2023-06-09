@@ -35,16 +35,26 @@ private constructor(
         }
     }
 
-    fun addPoint() = liveData {
+    fun addPoint(point: Int) = liveData {
         emit(ResultResponse.Loading)
         try {
             preference.getUser().collect {
-                val response = service.addPoint("Bearer ${it.accessToken}", 500)
+                val response = service.addPoint("Bearer ${it.accessToken}", point)
                 emit(ResultResponse.Success(response))
             }
         } catch (e: Exception) {
             emit(ResultResponse.Error(e.message.toString()))
         }
+    }
+
+    fun getWaste() = preference.getWaste()
+
+    suspend fun saveWaste(date: Int) {
+        preference.saveWaste(date)
+    }
+
+    suspend fun resetWaste() {
+        preference.resetWaste()
     }
 
     companion object {

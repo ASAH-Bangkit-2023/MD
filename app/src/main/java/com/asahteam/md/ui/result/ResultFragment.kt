@@ -15,6 +15,7 @@ import com.asahteam.md.databinding.FragmentResultBinding
 import com.asahteam.md.remote.response.ResultResponse
 import com.asahteam.md.ui.utils.RewardViewModelFactory
 import java.io.File
+import java.time.LocalDate
 
 class ResultFragment : Fragment() {
     private var _binding: FragmentResultBinding? = null
@@ -22,6 +23,7 @@ class ResultFragment : Fragment() {
     private val viewModel by viewModels<ResultViewModel> {
         RewardViewModelFactory.getInstance(requireContext())
     }
+    private lateinit var argument: ResultFragmentArgs
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,36 +33,68 @@ class ResultFragment : Fragment() {
         return binding?.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val arguments = ResultFragmentArgs.fromBundle(arguments as Bundle)
-        binding?.let {
-            it.resultOrganic.text = arguments.prediction
-            it.resultRecycle.text = arguments.predict
-            it.tipsTitle.text = arguments.action
-            it.description.text = arguments.description
-            Log.e("foto", arguments.image)
-            val myFile = File(arguments.image)
-            myFile.let { file ->
-                it.resultImage.setImageBitmap(BitmapFactory.decodeFile(file.path))
+    override fun onResume() {
+        super.onResume()
+        viewModel.getWaste().observe(viewLifecycleOwner) { result ->
+            if (LocalDate.now().dayOfMonth != result.dateWaste) {
+                viewModel.resetWaste()
             }
 
-            it.trashButton.setOnClickListener {
-                viewModel.addPoint().observe(viewLifecycleOwner) { result ->
+            binding?.let {
+                if (result.waste == 0 && argument.prediction != "No class detected") {
+                    it.trashButton.visibility = View.VISIBLE
+                } else {
+                    it.trashButton.visibility = View.GONE
+                    Toast.makeText(
+                        context,
+                        "Anda Sudah Membuang Sampah Hari ini, Atau Tipe Sampah Tidak Valid !",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        argument = ResultFragmentArgs.fromBundle(arguments as Bundle)
+
+        binding?.let { view1 ->
+            view1.resultOrganic.text = argument.prediction
+            view1.resultRecycle.text = argument.predict
+            view1.tipsTitle.text = argument.action
+            view1.description.text = argument.description
+            Log.e("foto", argument.image)
+            val myFile = File(argument.image)
+            myFile.let { file ->
+                view1.resultImage.setImageBitmap(BitmapFactory.decodeFile(file.path))
+            }
+            val point = when (argument.prediction) {
+                "Shoes" -> 50
+                "Metal" -> 25
+                "Plastic" -> 100
+                "Glass" -> 50
+                "Clothes" -> 25
+                "Paper" -> 125
+                "Trash" -> 10
+                "Battery" -> 30
+                "Biological" -> 45
+                "Cardboard" -> 70
+                else -> 0
+            }
+
+            view1.trashButton.setOnClickListener {
+                viewModel.addPoint(point).observe(viewLifecycleOwner) { result ->
                     when (result) {
                         is ResultResponse.Error -> {
-                            binding?.let {
-                                it.progessBar.visibility = View.GONE
-                                it.blocker.visibility = View.GONE
-                            }
+                            view1.progessBar.visibility = View.GONE
+                            view1.blocker.visibility = View.GONE
                             Toast.makeText(context, result.error, Toast.LENGTH_SHORT).show()
                         }
 
                         is ResultResponse.Loading -> {
-                            binding?.let {
-                                it.progessBar.visibility = View.VISIBLE
-                                it.blocker.visibility = View.VISIBLE
-                            }
+                            view1.progessBar.visibility = View.VISIBLE
+                            view1.blocker.visibility = View.VISIBLE
                         }
 
                         is ResultResponse.NotFound -> {
@@ -68,18 +102,17 @@ class ResultFragment : Fragment() {
                         }
 
                         is ResultResponse.Success -> {
-                            binding?.let {
-                                it.progessBar.visibility = View.GONE
-                                it.blocker.visibility = View.GONE
-                                it.trashButton.findNavController()
-                                    .navigate(R.id.action_resultFragment_to_profileFragment)
-                            }
+                            viewModel.saveWaste(LocalDate.now().dayOfMonth)
+                            view1.progessBar.visibility = View.GONE
+                            view1.blocker.visibility = View.GONE
+                            view1.trashButton.findNavController()
+                                .navigate(R.id.action_resultFragment_to_profileFragment)
                         }
                     }
                 }
             }
 
-            it.mapButton.setOnClickListener {
+            view1.mapButton.setOnClickListener {
                 it.findNavController().navigate(R.id.action_resultFragment_to_mapFragment)
             }
         }

@@ -1,11 +1,17 @@
 package com.asahteam.md.ui.reminder
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.asahteam.md.R
 import com.asahteam.md.databinding.ActivityReminderBinding
 import com.asahteam.md.ui.utils.ReminderViewModelFactory
@@ -21,10 +27,32 @@ class ReminderActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListe
         ReminderViewModelFactory.getInstance(this@ReminderActivity)
     }
 
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (!isGranted) {
+            Toast.makeText(
+                this,
+                "Permission not granted, you need to grant the permission.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityReminderBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
 
         reminderReceiver = ReminderReceiver()
 
@@ -52,8 +80,7 @@ class ReminderActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListe
 
         binding.reminderButton.setOnClickListener {
             val reminderTime = binding.jam.text.toString()
-            val id = binding.repeatGroup.checkedButtonId
-            val interval: Long = when (id) {
+            val interval: Long = when (binding.repeatGroup.checkedButtonId) {
                 R.id.hari_1 -> 1L
                 R.id.hari_3 -> 3L
                 R.id.hari_5 -> 5L

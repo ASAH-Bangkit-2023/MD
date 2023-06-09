@@ -5,12 +5,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import com.asahteam.md.databinding.ActivityHistoryBinding
-import com.asahteam.md.databinding.FragmentBlogBinding
 import com.asahteam.md.remote.response.ResultResponse
-import com.asahteam.md.ui.blog.BlogAdapter
-import com.asahteam.md.ui.blog.BlogFragmentDirections
 import com.asahteam.md.ui.utils.ScanViewModelFactory
 
 class HistoryActivity : AppCompatActivity() {
@@ -27,7 +23,7 @@ class HistoryActivity : AppCompatActivity() {
         viewModel.getHistory().observe(this) { result ->
             when (result) {
                 is ResultResponse.Error -> {
-                    binding?.let {
+                    binding.let {
                         it.progessBar.visibility = View.GONE
                         it.notFoundTv.visibility = View.GONE
                         it.blocker.visibility = View.GONE
@@ -36,7 +32,7 @@ class HistoryActivity : AppCompatActivity() {
                 }
 
                 is ResultResponse.Loading -> {
-                    binding?.let {
+                    binding.let {
                         it.progessBar.visibility = View.VISIBLE
                         it.blocker.visibility = View.VISIBLE
                         it.notFoundTv.visibility = View.GONE
@@ -44,7 +40,7 @@ class HistoryActivity : AppCompatActivity() {
                 }
 
                 is ResultResponse.NotFound -> {
-                    binding?.let {
+                    binding.let {
                         it.progessBar.visibility = View.GONE
                         it.blocker.visibility = View.GONE
                         it.notFoundTv.visibility = View.VISIBLE
@@ -52,11 +48,12 @@ class HistoryActivity : AppCompatActivity() {
                 }
 
                 is ResultResponse.Success -> {
-                    binding?.let {
+                    binding.let { it ->
                         it.progessBar.visibility = View.GONE
                         it.notFoundTv.visibility = View.GONE
                         it.blocker.visibility = View.GONE
-                        it.historyView.adapter = HistoryAdapter(result.data.sortedByDescending { it.dateScan })
+                        it.historyView.adapter =
+                            HistoryAdapter(result.data.sortedByDescending { it.dateScan })
                     }
                 }
             }

@@ -20,17 +20,17 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("a
 object Injection {
     private val apiService = ApiConfig.getApiService(base_url)
     fun getReminderRepository(context: Context): ReminderRepository {
-        val dataStore = AppPreference.getInstace(context.dataStore)
+        val dataStore = AppPreference.getInstance(context.dataStore)
         return ReminderRepository.getInstance(dataStore)
     }
 
     fun getAuthRepository(context: Context): AuthRepository {
-        val dataStore = AppPreference.getInstace(context.dataStore)
+        val dataStore = AppPreference.getInstance(context.dataStore)
         return AuthRepository.getInstance(dataStore, apiService)
     }
 
     fun getBlogRepository(context: Context): BlogRepository {
-        val dataStore = AppPreference.getInstace(context.dataStore)
+        val dataStore = AppPreference.getInstance(context.dataStore)
         return BlogRepository.getInstance(apiService, dataStore)
     }
 
@@ -40,12 +40,12 @@ object Injection {
     }
 
     fun getPointRepository(context: Context): PointRepository {
-        val dataStore = AppPreference.getInstace(context.dataStore)
+        val dataStore = AppPreference.getInstance(context.dataStore)
         return PointRepository.getInstance(apiService, dataStore)
     }
 
     fun getScanRepository(context: Context): ScanRepository {
-        val dataStore = AppPreference.getInstace(context.dataStore)
+        val dataStore = AppPreference.getInstance(context.dataStore)
         return ScanRepository.getInstance(apiService, dataStore)
     }
 }
