@@ -8,6 +8,7 @@
         <item name="colorSecondary">@color/secondary_dark</item>
         <item name="colorOnPrimary">@color/color_on_primary</item>
         <item name="colorOnSecondary">@color/color_on_secondary</item>
+        <item name="colorAccent">@color/color_on_primary</item>
         <item name="fontFamily">@font/poppins</item>
     </style>
 
