@@ -47,10 +47,19 @@ class ReminderActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListe
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.POST_NOTIFICATIONS
-            ) != PackageManager.PERMISSION_GRANTED
+            ) == PackageManager.PERMISSION_DENIED
         ) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.SCHEDULE_EXACT_ALARM
+            ) == PackageManager.PERMISSION_DENIED
+        ) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                requestPermissionLauncher.launch(Manifest.permission.SCHEDULE_EXACT_ALARM)
             }
         }
 

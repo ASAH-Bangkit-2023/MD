@@ -8,6 +8,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
@@ -19,6 +20,7 @@ import java.util.Locale
 
 class ReminderReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
+        Log.e("alarm", "Aku Terpanggil")
         showAlarmNotification(context)
     }
 
@@ -33,7 +35,7 @@ class ReminderReceiver : BroadcastReceiver() {
         val builder = NotificationCompat.Builder(context, channelId)
             .setSmallIcon(R.drawable.icon_application)
             .setContentTitle("Ingat Buang Sampah")
-            .setContentText("Jangan Lupa Baung Sampah Anda Hari ini!")
+            .setContentText("Jangan Lupa Buang Sampah Anda Hari ini!")
             .setColor(ContextCompat.getColor(context, android.R.color.transparent))
             .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
             .setSound(alarmSound)
@@ -76,7 +78,7 @@ class ReminderReceiver : BroadcastReceiver() {
         calendar.set(Calendar.MINUTE, Integer.parseInt(timeArray[1]))
         calendar.set(Calendar.SECOND, 0)
 
-        alarmManager.setRepeating(
+        alarmManager.setInexactRepeating(
             AlarmManager.RTC_WAKEUP,
             calendar.timeInMillis,
             AlarmManager.INTERVAL_DAY * interval,
@@ -99,6 +101,6 @@ class ReminderReceiver : BroadcastReceiver() {
     companion object {
         private const val TIME_FORMAT = "HH:mm"
 
-        private const val REMINDER_ID = 100
+        const val REMINDER_ID = 100
     }
 }

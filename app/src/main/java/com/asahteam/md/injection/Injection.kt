@@ -19,6 +19,11 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("a
 
 object Injection {
     private val apiService = ApiConfig.getApiService(base_url)
+
+    fun getPreference(context: Context): AppPreference {
+        return AppPreference.getInstance(context.dataStore)
+    }
+
     fun getReminderRepository(context: Context): ReminderRepository {
         val dataStore = AppPreference.getInstance(context.dataStore)
         return ReminderRepository.getInstance(dataStore)
