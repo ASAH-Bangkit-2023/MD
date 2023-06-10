@@ -24,16 +24,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.getUser().observe(this@MainActivity) { user ->
-            if (LocalDate.now().dayOfMonth != user.date) {
-                viewModel.logOut()
-            }
-            if (user.accessToken.isEmpty() || user.refreshToken.isEmpty()) {
-                Navigation.findNavController(this@MainActivity, R.id.fragmentContainerView)
-                    .navigate(R.id.loginFragment)
-            } else {
-                Navigation.findNavController(this@MainActivity, R.id.fragmentContainerView)
-                    .navigate(R.id.navigation_home)
+        if (savedInstanceState == null) {
+            viewModel.getUser().observe(this@MainActivity) { user ->
+                if (LocalDate.now().dayOfMonth != user.date) {
+                    viewModel.logOut()
+                }
+                if (user.accessToken.isEmpty() || user.refreshToken.isEmpty()) {
+                    Navigation.findNavController(this@MainActivity, R.id.fragmentContainerView)
+                        .navigate(R.id.loginFragment)
+                } else {
+                    Navigation.findNavController(this@MainActivity, R.id.fragmentContainerView)
+                        .navigate(R.id.navigation_home)
+                }
             }
         }
 
@@ -42,7 +44,9 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.navigation_home || destination.id == R.id.navigation_about || destination.id == R.id.navigation_profile) {
+            if (destination.id == R.id.navigation_home || destination.id == R.id.navigation_about || destination.id == R.id.navigation_profile ||
+                destination.id == R.id.navigation_maps
+            ) {
                 binding.bottomNavigation.visibility = View.VISIBLE
             } else {
                 binding.bottomNavigation.visibility = View.GONE
