@@ -81,7 +81,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/buang_sampah"
+            app:layout_constraintBottom_toTopOf="@id/mapButton"
             app:layout_constraintEnd_toEndOf="@id/description"
             app:layout_constraintStart_toStartOf="@id/description"
             app:layout_constraintTop_toBottomOf="@id/description" />
@@ -91,12 +93,10 @@
             style="@style/PrimaryButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="@string/cek_lokasi_tpa_terdekat"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/trash_button"
-            app:layout_constraintStart_toStartOf="@id/trash_button"
-            app:layout_constraintTop_toBottomOf="@id/trash_button" />
+            app:layout_constraintStart_toStartOf="@id/trash_button" />
 
         <View
             android:id="@+id/blocker"
