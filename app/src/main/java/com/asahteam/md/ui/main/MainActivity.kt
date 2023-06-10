@@ -24,15 +24,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (savedInstanceState == null) {
-            viewModel.getUser().observe(this@MainActivity) { user ->
-                if (LocalDate.now().dayOfMonth != user.date) {
-                    viewModel.logOut()
-                }
-                if (user.accessToken.isEmpty() || user.refreshToken.isEmpty()) {
-                    Navigation.findNavController(this@MainActivity, R.id.fragmentContainerView)
-                        .navigate(R.id.loginFragment)
-                } else {
+        viewModel.getUser().observe(this@MainActivity) { user ->
+            if (LocalDate.now().dayOfMonth != user.date) {
+                viewModel.logOut()
+            }
+            if (user.accessToken.isEmpty() || user.refreshToken.isEmpty()) {
+                Navigation.findNavController(this@MainActivity, R.id.fragmentContainerView)
+                    .navigate(R.id.loginFragment)
+            } else {
+                if (savedInstanceState == null) {
                     Navigation.findNavController(this@MainActivity, R.id.fragmentContainerView)
                         .navigate(R.id.navigation_home)
                 }

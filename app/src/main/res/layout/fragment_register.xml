@@ -39,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            app:hintTextColor="?attr/colorSecondary"
             app:layout_constraintBottom_toTopOf="@+id/email_layout"
             app:layout_constraintTop_toBottomOf="@+id/register_image"
             tools:layout_editor_absoluteX="24dp">
@@ -58,6 +59,7 @@
             style="@style/Widget.Material3.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="?attr/colorSecondary"
             app:layout_constraintBottom_toTopOf="@+id/username_layout"
             app:layout_constraintTop_toBottomOf="@+id/full_name_layout"
             tools:layout_editor_absoluteX="24dp">
@@ -77,6 +79,7 @@
             style="@style/Widget.Material3.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="?attr/colorSecondary"
             app:layout_constraintBottom_toTopOf="@+id/password_layout"
             app:layout_constraintTop_toBottomOf="@+id/email_layout"
             tools:layout_editor_absoluteX="24dp">
@@ -96,6 +99,7 @@
             style="@style/Widget.Material3.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="?attr/colorSecondary"
             app:layout_constraintBottom_toTopOf="@+id/confirm_password"
             app:layout_constraintTop_toBottomOf="@+id/username_layout"
             tools:layout_editor_absoluteX="24dp">
@@ -116,6 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            app:hintTextColor="?attr/colorSecondary"
             app:layout_constraintBottom_toTopOf="@+id/register_button"
             app:layout_constraintTop_toBottomOf="@+id/password_layout"
             tools:layout_editor_absoluteX="24dp">

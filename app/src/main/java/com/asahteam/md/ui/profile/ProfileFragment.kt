@@ -1,6 +1,7 @@
 package com.asahteam.md.ui.profile
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +43,7 @@ class ProfileFragment : Fragment() {
                 findNavController().navigate((R.id.action_navigation_profile_to_rewardActivity))
             }
             it.logout.setOnClickListener {
+                Log.e("logout", "aku terpanggil")
                 viewModel.logout()
             }
         }
