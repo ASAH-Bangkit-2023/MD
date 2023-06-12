@@ -191,6 +191,7 @@ class MapFragment : Fragment() {
                     binding?.let {
                         it.progessBar.visibility = View.GONE
                         it.notFoundTv.visibility = View.GONE
+                        it.blocker.visibility = View.GONE
                     }
                     locations.clear()
                     locations.addAll(result.data.results)

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.asahteam.md.R
@@ -40,7 +41,8 @@ class MainActivity : AppCompatActivity() {
             .setInitialDelay(initialDelay, TimeUnit.MILLISECONDS)
             .build()
 
-        WorkManager.getInstance(this).enqueue(workRequest)
+        WorkManager.getInstance(this)
+            .enqueueUniquePeriodicWork("IngatPoint", ExistingPeriodicWorkPolicy.KEEP, workRequest)
 
         viewModel.getUser().observe(this@MainActivity) { user ->
             if (LocalDate.now().dayOfMonth != user.date) {
