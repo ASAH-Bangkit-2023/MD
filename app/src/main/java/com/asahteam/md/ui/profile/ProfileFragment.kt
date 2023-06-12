@@ -74,11 +74,12 @@ class ProfileFragment : Fragment() {
                 }
 
                 is ResultResponse.Success -> {
+                    val point = result.data.totalPoints.toString() + " Points"
                     binding?.let {
                         it.progessBar.visibility = View.GONE
                         it.blocker.visibility = View.GONE
                         it.profileName.text = result.data.username
-                        it.profilePoint.text = result.data.totalPoints.toString()
+                        it.profilePoint.text = point
                     }
                 }
             }

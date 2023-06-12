@@ -23,6 +23,35 @@ class RewardActivity : AppCompatActivity() {
         binding = ActivityRewardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel.getPoint().observe(this@RewardActivity) { result ->
+            when (result) {
+                is ResultResponse.Error -> {
+                    binding.progessBar.visibility = View.GONE
+                    binding.blocker.visibility = View.GONE
+                    Log.e("error redeem", result.error)
+                    Toast.makeText(
+                        this@RewardActivity,
+                        result.error,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+                is ResultResponse.Loading -> {
+                    binding.progessBar.visibility = View.VISIBLE
+                    binding.blocker.visibility = View.VISIBLE
+                }
+
+                is ResultResponse.NotFound -> {}
+
+                is ResultResponse.Success -> {
+                    val point = result.data.totalPoints.toString() + " Points"
+                    binding.progessBar.visibility = View.GONE
+                    binding.blocker.visibility = View.GONE
+                    binding.pointTv.text = point
+                }
+            }
+        }
+
         val builder = AlertDialog.Builder(this@RewardActivity, R.style.myAlertdialogstyle)
         builder.setTitle("Redeem Alert !")
         builder.setMessage("Apakah Anda Yakin Ingin Menukar Point Anda Dengan Hadian Ini ?")
@@ -42,8 +71,7 @@ class RewardActivity : AppCompatActivity() {
                                     this@RewardActivity,
                                     result.error,
                                     Toast.LENGTH_SHORT
-                                )
-                                    .show()
+                                ).show()
                             }
 
                             is ResultResponse.Loading -> {
