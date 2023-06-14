@@ -1,5 +1,14 @@
-# ASAH Mobile Application
-ASAH is an application to encourage people to manage their waste properly by giving them rewards if they successfully manage their waste properly, where they need to sort their waste first and then they can dispose of or give their waste to recycling agencies around them
+# ASAH: Mobile Application
+## 📑About Our Project
+  ASAH (Aplikasi Sortir Sampah) is an application aimed at encouraging the community to manage waste in an appropriate manner and provides rewards when users successfully manage their waste correctly. In our application, users are required to sort their waste first, and then they can dispose of or donate their waste to recycling agencies in their vicinity.
+## 🖥️Related Project Repositories
+
+Here are some of the related repositories which are part of the same project:
+
+| Repository | Link |
+| --- | --- |
+| 📱 Cloud Computing | [CC Repository](https://github.com/ASAH-Bangkit-2023/CC.git) |
+| 🤖 Machine Learning | [ML Repository](https://github.com/ASAH-Bangkit-2023/ML) |
 
 # About the Android Project
 This project uses MVVM as its architecture pattern, where the fragment/activity will observe data from the viewModel. The viewModel will retrieve data from the repository obtained from the API.
