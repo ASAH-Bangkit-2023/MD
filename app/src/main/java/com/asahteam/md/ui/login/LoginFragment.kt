@@ -1,9 +1,13 @@
 package com.asahteam.md.ui.login
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
@@ -47,7 +51,16 @@ class LoginFragment : Fragment() {
             onBackPressedCallback
         )
         binding?.let { binding ->
+            binding.passwordEt.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    hideKeyboard()
+                    true
+                } else {
+                    false
+                }
+            }
             binding.loginButton.setOnClickListener {
+                hideKeyboard()
                 val username = binding.usernameEt.text.toString().trimIndent()
                 val password = binding.passwordEt.text.toString().trimIndent()
 
@@ -101,10 +114,21 @@ class LoginFragment : Fragment() {
                 }
             }
             binding.registerButton.setOnClickListener {
+                hideKeyboard()
                 binding.root.findNavController()
                     .navigate(R.id.action_loginFragment_to_registerFragment)
             }
         }
+    }
+
+    private fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
+    }
+
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     override fun onDestroy() {

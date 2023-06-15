@@ -1,9 +1,13 @@
 package com.asahteam.md.ui.register
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -34,7 +38,17 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.let { binding ->
+            binding.confirmPasswordEt.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    hideKeyboard()
+                    true
+                } else {
+                    false
+                }
+            }
+
             binding.registerButton.setOnClickListener {
+                hideKeyboard()
                 val username = binding.usernameEt.text.toString().trimIndent()
                 val password = binding.passwordEt.text.toString().trimIndent()
                 val confirmPassword = binding.confirmPasswordEt.text.toString().trimIndent()
@@ -105,10 +119,21 @@ class RegisterFragment : Fragment() {
                 }
             }
             binding.loginButton.setOnClickListener {
+                hideKeyboard()
                 binding.root.findNavController()
                     .navigate(R.id.action_registerFragment_to_loginFragment)
             }
         }
+    }
+
+    private fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
+    }
+
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     override fun onDestroy() {
